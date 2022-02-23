@@ -1,1 +1,32 @@
 @import "../../index.css";
+
+.container {
+  margin: 2rem;
+  width: 100%;
+  background-color: var(--color-button-dark);
+  border-radius: 15px;
+  padding: clamp(1.5rem, 2vw, 2.5rem);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.valueSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textContainerLabel {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #ffffff;
+}
+
+.textContainerDivision {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  color: #7f9d9f;
+}
