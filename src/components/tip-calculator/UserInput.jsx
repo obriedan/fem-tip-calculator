@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 //styles & images
 import styles from "./UserInput.module.css";
@@ -12,10 +12,9 @@ function UserInput({
   setPercentage,
   people,
   setPeople,
+  customValue,
+  setCustomValue,
 }) {
-  const [customValue, setCustomValue] = useState("");
-  useEffect(() => {}, [bill, percentage]);
-
   const tipPercentages = [5, 10, 15, 25, 50];
 
   const handlePeopleChange = (value) => {
