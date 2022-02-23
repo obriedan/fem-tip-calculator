@@ -6,9 +6,9 @@ import styles from "./TipDisplay.module.css";
 const ValueSection = ({ text, amount }) => {
   return (
     <div className={styles.valueSection}>
-      <div className={styles["text-container"]}>
-        <p>{text}</p>
-        <p>/ person</p>
+      <div className={styles.textContainer}>
+        <p className={styles.textContainerLabel}>{text}</p>
+        <p className={styles.textContainerDivision}>/ person</p>
       </div>
       <div className={styles["amount-container"]}>${amount}</div>
     </div>
