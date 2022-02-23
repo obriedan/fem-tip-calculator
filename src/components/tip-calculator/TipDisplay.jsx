@@ -15,11 +15,11 @@ const ValueSection = ({ text, amount }) => {
   );
 };
 
-function TipDisplay({ amountPerPerson, totalAmount, handleReset }) {
+function TipDisplay({ amountPerPerson, totalAmountPerPerson, handleReset }) {
   return (
     <div className={styles.container}>
-      <ValueSection text="Tip Amount" amount={amountPerPerson} />
-      <ValueSection text="Total" amount={totalAmount} />
+      <ValueSection text="Tip Amount" amount={Number(amountPerPerson)} />
+      <ValueSection text="Total" amount={Number(totalAmountPerPerson)} />
       <button onClick={handleReset} className={styles.reset}>
         RESET
       </button>
