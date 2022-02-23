@@ -1,0 +1,10 @@
+@import "./index.css";
+
+.app {
+  height: 100vh;
+  border: 1px solid #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
