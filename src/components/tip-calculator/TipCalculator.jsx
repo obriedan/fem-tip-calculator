@@ -38,7 +38,7 @@ function TipCalculator() {
   }, [bill, percentage, people]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <UserInput
         bill={bill}
         setBill={setBill}
