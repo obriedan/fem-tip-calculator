@@ -11,9 +11,12 @@
   --color-text-dark: #7f9d9f;
   --color-text-extra-dark: #00474b;
 }
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: "Space Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,5 +28,6 @@ code {
 }
 
 html {
+  margin: 0;
   background-color: var(--color-background-main);
 }

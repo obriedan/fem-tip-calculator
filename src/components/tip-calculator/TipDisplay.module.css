@@ -1,14 +1,14 @@
 @import "../../index.css";
 
 .container {
-  margin: 2rem;
+  margin: 1.5rem;
   width: 100%;
   background-color: var(--color-button-dark);
   border-radius: 15px;
   padding: clamp(1.5rem, 2vw, 2.5rem);
-
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 }
 
 .valueSection {
@@ -29,4 +29,25 @@
   font-size: 13px;
   line-height: 19px;
   color: #7f9d9f;
+}
+
+.amountContainer {
+  color: var(--color-text-med);
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 2.9375rem;
+  text-align: right;
+  letter-spacing: 0.041666875rem;
+}
+
+.reset {
+  margin-top: 0.75rem;
+  background-color: var(--color-button-med);
+  color: var(--color-text-extra-dark);
+  border-radius: 0.3125rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.875rem;
+  border: none;
+  padding: 0.5625rem 0;
 }

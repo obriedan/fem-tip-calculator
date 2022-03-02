@@ -10,7 +10,7 @@ const ValueSection = ({ text, amount }) => {
         <p className={styles.textContainerLabel}>{text}</p>
         <p className={styles.textContainerDivision}>/ person</p>
       </div>
-      <div className={styles["amount-container"]}>${amount}</div>
+      <div className={styles.amountContainer}>${amount.toFixed(2)}</div>
     </div>
   );
 };
