@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 //styles & images
 import styles from "./UserInput.module.css";
 import dollarIcon from "../../images/icon-dollar.svg";
 import peopleIcon from "../../images/icon-person.svg";
+
+const classNames = require("classnames");
 
 function UserInput({
   bill,
@@ -15,6 +17,10 @@ function UserInput({
   customValue,
   setCustomValue,
 }) {
+  const [buttonColor, setButtonColor] = useState({
+    selected: false,
+    button: "",
+  });
   const tipPercentages = [5, 10, 15, 25, 50];
 
   const handlePeopleChange = (value) => {
@@ -26,43 +32,57 @@ function UserInput({
       setPeople("");
     }
   };
+
+  const handlePercentageClick = (number) => {
+    setPercentage(number);
+    setCustomValue("");
+    setButtonColor({ selected: true, button: number });
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.billContainer}>
-        <div className="inputContainer">
-          <label className={styles.billLabel}>Bill</label>
-          <img src={dollarIcon} alt="" />
-          <input
-            type="number"
-            value={bill}
-            placeholder="0"
-            onChange={(e) => {
-              setBill(e.target.value);
-            }}
-          />
-        </div>
+      <div className={styles.inputContainer}>
+        <label className={styles.billLabel}>Bill</label>
+        <img className={styles.inputIcon} src={dollarIcon} alt="" />
+        <input
+          type="number"
+          value={bill}
+          placeholder="0"
+          onChange={(e) => {
+            setBill(e.target.value);
+          }}
+        />
       </div>
 
       <div className={styles.tipPercentageContainer}>
-        <label className="tipPercentageLabel">Select Tip %</label>
-        <div className="tipPercentageGrid">
-          {tipPercentages.map((number) => (
-            <div
-              onClick={() => {
-                setPercentage(number);
-                setCustomValue("");
-              }}
-              key={Math.random()}
-              className="percentButton"
-            >
-              {number}%
-            </div>
-          ))}
+        <label className={styles.tipPercentageLabel}>Select Tip %</label>
+        <div className={styles.tipPercentageGrid}>
+          {tipPercentages.map((number) => {
+            const btnClass = classNames({
+              [`${styles.percentButton}`]: true,
+              [`${styles.selected}`]:
+                buttonColor.selected && buttonColor.button === number,
+            });
+
+            return (
+              <div
+                onClick={() => {
+                  handlePercentageClick(number);
+                }}
+                key={Math.random()}
+                className={btnClass}
+              >
+                {number}%
+              </div>
+            );
+          })}
 
           <input
+            className={styles.customInput}
             placeholder="Custom"
             value={customValue}
             onChange={(e) => {
+              setButtonColor({ selected: false, button: "" });
               setPercentage(Number(e.target.value));
               setCustomValue(e.target.value);
             }}
@@ -71,20 +91,18 @@ function UserInput({
         </div>
       </div>
 
-      <div className={styles.peopleContainer}>
-        <div className="inputContainer">
-          <label className={styles.peopleLabel}>Number of People</label>
-          <img src={peopleIcon} alt="" />
-          <input
-            type="number"
-            min="1"
-            value={people}
-            placeholder="0"
-            onChange={(e) => {
-              setPeople(e.target.value.replace(/[^0-9]/g, ""));
-            }}
-          />
-        </div>
+      <div className={styles.inputContainer}>
+        <label className={styles.peopleLabel}>Number of People</label>
+        <img className={styles.inputIcon} src={peopleIcon} alt="" />
+        <input
+          type="number"
+          min="1"
+          value={people}
+          placeholder="0"
+          onChange={(e) => {
+            setPeople(e.target.value.replace(/[^0-9]/g, ""));
+          }}
+        />
       </div>
     </div>
   );

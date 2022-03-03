@@ -1,4 +1,101 @@
 @import "../../index.css";
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.inputContainer {
+  position: relative;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--color-text-grey);
+}
+
+.inputContainer input {
+  width: 100%;
+  margin-top: 0.375rem;
+  border-radius: 0.3125rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  text-align: right;
+  padding: 0.375rem 1.125rem;
+  position: relative;
+  background-color: var(--color-background-input);
+  border: none;
+  max-width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 17px;
+  bottom: 15px;
+  z-index: 20;
+}
+
+.tipPercentageGrid {
+  margin-top: 0.375rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  place-items: center;
+}
+
+.percentButton {
+  font-weight: bold;
+  border-radius: 0.3125rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  cursor: pointer;
+  padding: 0.375rem 0;
+  text-align: center;
+  background-color: var(--color-button-dark);
+  color: white;
+  width: 100%;
+}
+
+.percentButton:active {
+  background-color: var(--color-button-light);
+  color: var(--color-text-extra-dark);
+}
+.selected {
+  background-color: var(--color-button-med);
+  color: var(--color-text-extra-dark);
+  transition: color 1s ease;
+}
+
+input:focus-visible {
+  outline: 2px solid #26c2ae;
+}
+
+.customInput {
+  background-color: var(--color-background-input);
+  border: none;
+  color: #547878;
+  text-align: right;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  padding: 0.375rem 1.125rem;
+  border-radius: 0.3125rem;
+  width: 100%;
 }
