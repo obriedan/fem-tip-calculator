@@ -10,6 +10,7 @@
   --color-text-med: #26c2ae;
   --color-text-dark: #7f9d9f;
   --color-text-extra-dark: #00474b;
+  --color-text-grey: #5e7a7d;
 }
 * {
   margin: 0;
